@@ -1,11 +1,14 @@
+
 import './sass/main.scss';
 import axios from "axios";
+
 // import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 // ??? или const lightbox = new SimpleLightbox('.gallery a', { /* options */ });
 // import SimpleLightbox from "simplelightbox";
 
 // разметка для SimpleLightbox, и обернуть каждую карточку изображения в ссылку, как указано в документации
+
 
 
 const refs = {
@@ -187,14 +190,3 @@ function renderPhoto(images) {
 
 //     refs.gallery.insertAdjacentHTML('beforeend', markup);
 // };
-
-
-
-// exemple https://pixabay.com/api/?key=24451783-36fc53d78d658727e466a2b4b&q=yellow+flowers&image_type=photo
-// const URL = `https://pixabay.com/api/?key=24451783-36fc53d78d658727e466a2b4b&q=${inputText}&image_type=photo&orientation=horizontal&safesearch=true`;
-// --------------------------------------DELETE----------------------
-
-
-
-
-
