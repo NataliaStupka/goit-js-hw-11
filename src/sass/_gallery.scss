@@ -1,0 +1,43 @@
+/* button load-more */
+.load-more {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  font: inherit;
+}
+.load-more.is-hidden {
+  display: none;
+}
+
+// form
+.search-form {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+// gallery
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.photo-card {
+}
+.photo-img {
+  width: 300px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.info {
+  display: flex;
+}
+.info-item {
+  font-size: 8px;
+  color: black;
+  margin-right: 10px;
+}
