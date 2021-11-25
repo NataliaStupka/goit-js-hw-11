@@ -4,10 +4,11 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import axios from "axios";
 import { fetchImages } from './api';
 
+import SimpleLightbox from 'simplelightbox';
+// Дополнительный импорт стилей
+import 'simplelightbox/dist/simple-lightbox.min.css';
+// в использовании const lightbox = new SimpleLightbox('.gallery a', { /* options */ });
 
-
-// ??? или const lightbox = new SimpleLightbox('.gallery a', { /* options */ });
-// import SimpleLightbox from "simplelightbox";
 
 
 const refs = {
@@ -30,6 +31,7 @@ let totalHits;
 
 
 
+
 function onSerch(event) {
     
     event.preventDefault();
@@ -47,7 +49,7 @@ function onSerch(event) {
     // рисуем картинки
     fetchImages(inputText, page).then(checkrenderPhoto)
         .catch(error => console.log('Это ошибочка; ', error));
-  
+  let lightbox = new SimpleLightbox('.gallery a');
 }
 
 
@@ -84,6 +86,7 @@ function renderPhoto(images) {
     const imagesArray = images.hits;
     console.log('ЭТО долбыный массив', imagesArray)
     const markup = imagesArray.map(({ largeImageURL, webformatURL, tags, likes, views, comments, downloads }) => `
+    <div class="gallery-item">
     <a class="link" href="${largeImageURL}">
             <div class="photo-card">
                  <img class="photo-img" src="${webformatURL}" alt="${tags}" loading="lazy" />
@@ -102,11 +105,16 @@ function renderPhoto(images) {
                      </p>
                 </div>
              </div>
-     </a>`
+     </a>
+     </div>`
     )
         .join('');
 
-   return refs.gallery.insertAdjacentHTML('beforeend', markup);
+    refs.gallery.insertAdjacentHTML('beforeend', markup);
+    
+    // подключаем библиотеку
+    let gallery = new SimpleLightbox('.gallery a');
+     gallery.refresh();
 };
 
 function isAllImages() {
