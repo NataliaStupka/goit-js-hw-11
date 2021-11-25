@@ -55,13 +55,13 @@ function onSerch(event) {
 
 //два варианта: если пришел пустой массив; пришли изображения
 function checkrenderPhoto(images) {
-    console.log('добраться до массива', images.hits);
-    if (images.hits.length === 0) {
+    console.log('добраться до массива', images.data.hits);
+    if (images.data.hits.length === 0) {
         refs.buttonLoadMore.classList.add('is-hidden');
         return Notify.failure("Sorry, there are no images matching your search query. Please try again.")
     }
 
-    totalHits = images.total;
+    totalHits = images.data.total;
  refs.buttonLoadMore.classList.remove('is-hidden');
     Notify.success(`Hooray! We found ${totalHits} images.`);
     return renderPhoto(images);
@@ -79,12 +79,13 @@ function onLoadMore() {
         .catch(error => console.log('Это ошибочка; ', error));
 
     
+    
 }
 
 // разметка
 function renderPhoto(images) {
-    const imagesArray = images.hits;
-    console.log('ЭТО долбыный массив', imagesArray)
+    const imagesArray = images.data.hits;
+    console.log('ЭТО массив', imagesArray)
     const markup = imagesArray.map(({ largeImageURL, webformatURL, tags, likes, views, comments, downloads }) => `
     <div class="gallery-item">
     <a class="link" href="${largeImageURL}">
@@ -120,7 +121,7 @@ function renderPhoto(images) {
 function isAllImages() {
     if (page * 40 >= totalHits) {
         refs.buttonLoadMore.classList.add('is-hidden');
-        Notify.success('Это все что есть');
+        Notify.success("We're sorry, but you've reached the end of search results.");
     }
 }
 

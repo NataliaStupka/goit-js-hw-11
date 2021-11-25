@@ -2,6 +2,7 @@
 
 
 // ============================1й вариант ВОЗМОЖНО удалить
+// как пример через  class
 // export class LoadMoreBtn {
 //     #element;
 //     #className;

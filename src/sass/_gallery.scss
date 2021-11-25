@@ -1,9 +1,10 @@
 // button
 .button {
   cursor: pointer;
-  font: inherit;
+  // font: inherit;
   border-radius: 5px;
   padding: 10px 20px;
+  font-size: 15px;
 }
 
 // form
@@ -13,7 +14,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  font-size: 30px;
+  font-size: 20px;
   padding: 20px;
   background-color: #5649cc;
 }
@@ -27,7 +28,7 @@
   letter-spacing: 0.01em;
 }
 .button-form {
-  background-color: rgb(197, 205, 236);
+  background-color: rgb(210, 212, 221);
 }
 
 // gallery
